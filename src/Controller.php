@@ -2,6 +2,8 @@
 
 namespace App;
 
+use chillerlan\QRCode\{QRCode, QROptions};
+
 /**
  * @author Yuana 
  * @since May, 20 2018
@@ -78,7 +80,7 @@ class Controller {
     {
         return ['qr-code', [
             'key' => 'value',
-            'tes' => 'haiahihih'
+            'qr_image' => (new QRCode)->render('https://www.youtube.com/watch?v=E1JKd1C7izQ')
         ]];
     }
 

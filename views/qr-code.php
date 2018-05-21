@@ -11,7 +11,8 @@
 
     <?php echo $key; ?>
 
-    <?php echo $tes; ?>
+    <?php echo '<img src="'.$qr_image.'" />'; ?>
+
 
 </body>
 </html>
