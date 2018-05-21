@@ -33,7 +33,7 @@ class App {
     {
         $pdo = new PDO('sqlite:' . $this->rootDir . DIRECTORY_SEPARATOR . 'db/data.db');
         $pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_LOWER);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         $this->pdo = $pdo;
     }
@@ -62,6 +62,7 @@ class App {
             $r->addRoute('POST', '/products', 'insert');
             $r->addRoute('PUT', '/products/{id:\d+}', 'update');
             $r->addRoute('DELETE','/products/{id:\d+}', 'delete');
+            $r->addRoute('GET', '/products/qr-code', 'qrCode');
 
         });
     }

@@ -74,6 +74,11 @@ class Controller {
         return $this->response(200);
     }
 
+    public function qrCode()
+    {
+        return $this->response(200);
+    }
+
     public function notFound()
     {
         return $this->response(404);
