@@ -61,9 +61,14 @@ class App {
     private function router()
     {
         return FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
-            //todo
+            
             $r->addRoute('GET', '/', 'index');
-            $r->addRoute('POST', '/anu', 'anu');
+
+            $r->addRoute('GET', '/products', 'findAll');
+            $r->addRoute('GET', '/products/{id:\d+}', 'findById');
+            $r->addRoute('POST', '/products', 'insert');
+            $r->addRoute('PUT', '/products/{id:\d+}', 'update');
+
         });
     }
 
@@ -105,6 +110,6 @@ class App {
     {
         header('content-type: application/json');
         header("HTTP/1.1 {$response['code']} {$response['msg']}"); 
-        echo json_encode($response);
+        echo json_encode($response, JSON_NUMERIC_CHECK);
     }
 }

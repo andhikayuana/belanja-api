@@ -21,8 +21,6 @@ cd belanja-api
 composer install
 ```
 
-### Configuration
-
 ### Running
 
 To run this API using this command
@@ -46,3 +44,70 @@ Now, you can access using Postman `http://localhost:3000` and see
 ```
 
 ### How to use
+
+* `BASE_URL=http://localhost:3000`
+* `GET` `/products` _get all products_
+
+response example
+
+```json
+{
+    "code": 200,
+    "msg": "Success",
+    "data": [
+        {
+            "id": 1,
+            "name": "Sandal Mahal",
+            "price": 5000000,
+            "image": "https://anu.com/images/sandal-mahal.jpg"
+        },
+        {
+            "id": 2,
+            "name": "Baju Mahal",
+            "price": 8000000,
+            "image": "https://anu.com/images/baju-mahal.jpg"
+        }
+    ]
+}
+``` 
+
+* `GET` `/products/{id}` _get product by id_
+
+response example
+
+```json
+{
+    "code": 200,
+    "msg": "Success",
+    "data": {
+        "id": 1,
+        "name": "Sandal Mahal",
+        "price": 5000000,
+        "image": "https://anu.com/sandal-mahal.jpg"
+    }
+}
+```
+
+* `POST` `/products` _insert product data_
+
+request example
+
+```json
+```
+
+response example
+
+```json
+```
+
+* `PUT` `/products/{id}` _update product data_
+
+request example
+
+```json
+```
+
+response example
+
+```json
+```

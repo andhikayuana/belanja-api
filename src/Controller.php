@@ -29,12 +29,32 @@ class Controller {
         ]);
     }
 
-    public function anu($request)
+    public function findAll()
     {
-        //todo
-        return $this->response(200, [
-            $_POST
-        ]);
+        $products = [];
+
+        foreach ($this->db->products() as $row) {
+            $products[] = $row;
+        }
+
+        return $this->response(200, $products);
+    }
+
+    public function findById($id)
+    {
+        $product = $this->db->products[$id];
+
+        return $this->response(200, $product);
+    }
+
+    public function insert()
+    {
+        return $this->response(200, ['insert']);
+    }
+
+    public function update()
+    {
+        return $this->response(200, ['update']);
     }
 
     public function notFound()
