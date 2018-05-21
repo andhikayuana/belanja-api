@@ -10,6 +10,8 @@
         }
     ],
     "require": {
+        "php": ">=7.0.3",
+		"chillerlan/php-qrcode": "dev-master",
         "vrana/notorm": "dev-master"
     },
     "autoload": {
