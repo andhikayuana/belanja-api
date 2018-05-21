@@ -68,6 +68,7 @@ class App {
             $r->addRoute('GET', '/products/{id:\d+}', 'findById');
             $r->addRoute('POST', '/products', 'insert');
             $r->addRoute('PUT', '/products/{id:\d+}', 'update');
+            $r->addRoute('DELETE','/products/{id:\d+}', 'delete');
 
         });
     }

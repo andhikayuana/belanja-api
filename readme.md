@@ -93,11 +93,26 @@ response example
 request example
 
 ```json
+{
+	"name": "Sepatu Mahal Banget",
+	"price": 6000000,
+	"image": "http://anu.com/images/weird-shoes-3-1.jpg"
+}
 ```
 
 response example
 
 ```json
+{
+    "code": 200,
+    "msg": "Success",
+    "data": {
+        "name": "Sepatu Mahal Banget",
+        "price": 6000000,
+        "image": "http://anu.com/images/weird-shoes-3-1.jpg",
+        "id": 4
+    }
+}
 ```
 
 * `PUT` `/products/{id}` _update product data_

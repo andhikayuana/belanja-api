@@ -49,12 +49,21 @@ class Controller {
 
     public function insert()
     {
-        return $this->response(200, ['insert']);
+        $request = $this->jsonRequest();
+
+        $data = $this->db->products()->insert($request);
+
+        return $this->response(200, $data);
     }
 
-    public function update()
+    public function update($id)
     {
         return $this->response(200, ['update']);
+    }
+
+    public function delete($id)
+    {
+        return $this->response(200, ['delete']);
     }
 
     public function notFound()
@@ -79,5 +88,10 @@ class Controller {
     public function getMsg($code = 200)
     {
         return self::$msg[$code];
+    }
+
+    private function jsonRequest()
+    {
+        return json_decode(file_get_contents("php://input"), true);
     }
 }
