@@ -74,9 +74,12 @@ class Controller {
         return $this->response(200);
     }
 
-    public function qrCode()
+    public function htmlQRCode()
     {
-        return $this->response(200);
+        return ['qr-code', [
+            'key' => 'value',
+            'tes' => 'haiahihih'
+        ]];
     }
 
     public function notFound()

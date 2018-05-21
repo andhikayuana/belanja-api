@@ -14,12 +14,15 @@ use FastRoute\Dispatcher;
 class App {
 
     private $rootDir;
+    private $viewDir;
     private $pdo;
     private $db;
+    private $renderer;
 
     public function __construct($rootDir)
     {
         $this->rootDir = $rootDir;
+        $this->viewDir = $rootDir . DIRECTORY_SEPARATOR . 'views';
     }
 
     public function setup()
@@ -27,6 +30,7 @@ class App {
         $this->setupPdo();
         $this->setupNotOrm();
         $this->setupController();
+        $this->setupRenderer();
     }
 
     private function setupPdo()
@@ -51,6 +55,11 @@ class App {
         $this->controller = new Controller($this->db);
     }
 
+    private function setupRenderer()
+    {
+        $this->renderer = new Renderer($this->viewDir);
+    }
+
     private function router()
     {
         return FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
@@ -62,7 +71,7 @@ class App {
             $r->addRoute('POST', '/products', 'insert');
             $r->addRoute('PUT', '/products/{id:\d+}', 'update');
             $r->addRoute('DELETE','/products/{id:\d+}', 'delete');
-            $r->addRoute('GET', '/products/qr-code', 'qrCode');
+            $r->addRoute('GET', '/products/qr-code', 'htmlQRCode');
 
         });
     }
@@ -98,13 +107,6 @@ class App {
                 break;
         }
 
-        $this->renderJson($response);
-    }
-
-    private function renderJson($response)
-    {
-        header('content-type: application/json');
-        header("HTTP/1.1 {$response['code']} {$response['msg']}"); 
-        echo json_encode($response, JSON_NUMERIC_CHECK);
+        $this->renderer->render($routeInfo, $response);
     }
 }

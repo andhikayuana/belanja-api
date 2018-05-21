@@ -153,3 +153,7 @@ response example
     "data": []
 }
 ```
+
+### Show QR Code for scanning the product
+
+* `GET` `/products/qr-code` _show qr code to get product data_
