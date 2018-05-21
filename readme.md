@@ -32,4 +32,17 @@ cd public
 php -S localhost:3000
 ```
 
+Now, you can access using Postman `http://localhost:3000` and see 
+
+```json
+{
+    "code": 200,
+    "msg": "Success",
+    "data": {
+        "name": "Belanja API Demo",
+        "version": "1.0.0"
+    }
+}
+```
+
 ### How to use

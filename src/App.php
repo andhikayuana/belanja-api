@@ -4,6 +4,8 @@ namespace App;
 
 use PDO;
 use NotORM;
+use FastRoute;
+use FastRoute\Dispatcher;
 
 /**
  * @author Yuana 
@@ -56,14 +58,53 @@ class App {
         $this->router = null;
     }
 
+    private function router()
+    {
+        return FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+            //todo
+            $r->addRoute('GET', '/', 'index');
+            $r->addRoute('POST', '/anu', 'anu');
+        });
+    }
+
     public function run()
     {
-        echo 'tes';
-        //todo add routing here
-        foreach ($this->db->products() as $row) {
-            var_dump($row);
+        $dispatcher = $this->router();
+        $response = $this->controller->response();
+        
+        // Fetch method and URI from somewhere
+        $httpMethod = $_SERVER['REQUEST_METHOD'];
+        $uri = $_SERVER['REQUEST_URI'];
+        
+        // Strip query string (?foo=bar) and decode URI
+        if (false !== $pos = strpos($uri, '?')) {
+            $uri = substr($uri, 0, $pos);
+        }
+        $uri = rawurldecode($uri);
+        
+        $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
+        switch ($routeInfo[0]) {
+            case Dispatcher::NOT_FOUND:
+                $response = $this->controller->notFound();
+                break;
+            case Dispatcher::METHOD_NOT_ALLOWED:
+                $allowedMethods = $routeInfo[1];
+                $response = $this->controller->methodNotAllowed();
+                break;
+            case Dispatcher::FOUND:
+                $handler = $routeInfo[1];
+                $vars = $routeInfo[2];
+                $response = $this->controller->$handler($vars);
+                break;
         }
 
-        $this->controller->tes();
+        $this->renderJson($response);
+    }
+
+    private function renderJson($response)
+    {
+        header('content-type: application/json');
+        header("HTTP/1.1 {$response['code']} {$response['msg']}"); 
+        echo json_encode($response);
     }
 }
