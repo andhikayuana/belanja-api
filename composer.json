@@ -1,0 +1,20 @@
+{
+    "name": "andhikayuana/api.belanja.test",
+    "description": "Simple API demo for qr code product",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Andhika Yuana",
+            "email": "andhikayuana@gmail.com"
+        }
+    ],
+    "require": {
+        "vrana/notorm": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    }
+}
