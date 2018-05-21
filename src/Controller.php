@@ -58,12 +58,20 @@ class Controller {
 
     public function update($id)
     {
-        return $this->response(200, ['update']);
+        $request = $this->jsonRequest();
+        
+        $this->db->products[$id]->update($request);
+
+        $data = $this->db->products[$id];
+
+        return $this->response(200, $data);
     }
 
     public function delete($id)
     {
-        return $this->response(200, ['delete']);
+        $this->db->products[$id]->delete();
+
+        return $this->response(200);
     }
 
     public function notFound()

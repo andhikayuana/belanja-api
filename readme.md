@@ -120,9 +120,36 @@ response example
 request example
 
 ```json
+{
+	"name": "Sepatu Mahal wkwk",
+	"price": 2500000,
+	"image": "https://anu.com/weird-and-funny-shoes02.jpg"
+}
 ```
 
 response example
 
 ```json
+{
+    "code": 200,
+    "msg": "Success",
+    "data": {
+        "id": 4,
+        "name": "Sepatu Mahal wkwk",
+        "price": 2500000,
+        "image": "https://anu.com/weird-and-funny-shoes02.jpg"
+    }
+}
+```
+
+* `DELETE` `/products/{id}` _delete product data_
+
+response example
+
+```json
+{
+    "code": 200,
+    "msg": "Success",
+    "data": []
+}
 ```

@@ -16,7 +16,6 @@ class App {
     private $rootDir;
     private $pdo;
     private $db;
-    private $router;
 
     public function __construct($rootDir)
     {
@@ -28,7 +27,6 @@ class App {
         $this->setupPdo();
         $this->setupNotOrm();
         $this->setupController();
-        $this->setupFastRouter();
     }
 
     private function setupPdo()
@@ -51,11 +49,6 @@ class App {
     private function setupController()
     {
         $this->controller = new Controller($this->db);
-    }
-
-    private function setupFastRouter()
-    {
-        $this->router = null;
     }
 
     private function router()
