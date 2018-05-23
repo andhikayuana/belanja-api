@@ -7,12 +7,14 @@
     <title>Scan The Product Here</title>
 </head>
 <body>
-    hello
-
-    <?php echo $key; ?>
-
-    <?php echo '<img src="'.$qr_image.'" />'; ?>
-
-
+    <table>
+        <tr>
+        <?php foreach ($products as $item) : ?>
+           <td>
+                <img src="<?php echo $item['qr_code_image'] ?>" alt="<?php echo $item['name'] ?>">
+           </td>
+        <?php endforeach ?>
+        </tr>
+    </table>
 </body>
 </html>

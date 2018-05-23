@@ -78,9 +78,20 @@ class Controller {
 
     public function htmlQRCode()
     {
+        $products = [];
+
+        foreach ($this->db->products() as $row) {
+            
+            $qrCodeUrl = Util::url("/products/{$row['id']}");
+            
+            $row['qr_code_image'] = (new QRCode)->render($qrCodeUrl);
+            $row['qr_code_url'] = $qrCodeUrl;
+
+            $products[] = $row;
+        }
+
         return ['qr-code', [
-            'key' => 'value',
-            'qr_image' => (new QRCode)->render('https://www.youtube.com/watch?v=E1JKd1C7izQ')
+            'products' => $products
         ]];
     }
 

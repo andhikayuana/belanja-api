@@ -13,4 +13,14 @@ class Util {
         $length = strlen($needle);
         return (substr($haystack, 0, $length) === $needle);
     }
+
+    public static function url($uri)
+    {
+        return 'http://' . $_SERVER['HTTP_HOST'] . $uri;
+    }
+
+    public static function tes()
+    {
+        return $_SERVER;
+    }
 }
