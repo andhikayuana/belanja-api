@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "422155c5c62560265dfa388fbf99079c",
+    "content-hash": "e19c21dbc00e348814f565944e3ed515",
     "packages": [
         {
             "name": "chillerlan/php-qrcode",
@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillerlan/php-qrcode.git",
-                "reference": "879c3740da05c35864d299ea94733ce822793d13"
+                "reference": "4241b55f3841872704fc31eecc49b18ab5751f59"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/879c3740da05c35864d299ea94733ce822793d13",
-                "reference": "879c3740da05c35864d299ea94733ce822793d13",
+                "url": "https://api.github.com/repos/chillerlan/php-qrcode/zipball/4241b55f3841872704fc31eecc49b18ab5751f59",
+                "reference": "4241b55f3841872704fc31eecc49b18ab5751f59",
                 "shasum": ""
             },
             "require": {
@@ -49,7 +49,7 @@
                     "homepage": "https://github.com/kazuhikoarase"
                 },
                 {
-                    "name": "smiley",
+                    "name": "Smiley",
                     "email": "smiley@chillerlan.net",
                     "homepage": "https://github.com/codemasher"
                 }
@@ -59,20 +59,20 @@
             "keywords": [
                 "qr code"
             ],
-            "time": "2018-04-11T22:12:40+00:00"
+            "time": "2018-06-20T22:53:20+00:00"
         },
         {
             "name": "chillerlan/php-traits",
-            "version": "1.1.12",
+            "version": "1.1.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/chillerlan/php-traits.git",
-                "reference": "02560c0e8164f35d106770e098984671eb3d2623"
+                "reference": "264759946b6aaeb427346b749fc9639b790b8e7f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/chillerlan/php-traits/zipball/02560c0e8164f35d106770e098984671eb3d2623",
-                "reference": "02560c0e8164f35d106770e098984671eb3d2623",
+                "url": "https://api.github.com/repos/chillerlan/php-traits/zipball/264759946b6aaeb427346b749fc9639b790b8e7f",
+                "reference": "264759946b6aaeb427346b749fc9639b790b8e7f",
                 "shasum": ""
             },
             "require": {
@@ -107,7 +107,7 @@
                 "helper",
                 "trait"
             ],
-            "time": "2018-04-22T16:49:25+00:00"
+            "time": "2018-06-22T00:30:47+00:00"
         },
         {
             "name": "nikic/fast-route",
@@ -205,7 +205,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=7.0.3"
+        "php": ">=7.0.3",
+        "ext-pdo_sqlite": "*"
     },
     "platform-dev": []
 }

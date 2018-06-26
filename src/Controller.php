@@ -84,7 +84,7 @@ class Controller {
             
             $qrCodeUrl = Util::url("/products/{$row['id']}");
             
-            $row['qr_code_image'] = (new QRCode)->render($qrCodeUrl);
+            $row['qr_code_image'] = (new QRCode)->render(json_encode($row));
             $row['qr_code_url'] = $qrCodeUrl;
 
             $products[] = $row;
