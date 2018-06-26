@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e19c21dbc00e348814f565944e3ed515",
+    "content-hash": "efd774d333bf6c02197893c819bc75d6",
     "packages": [
         {
             "name": "chillerlan/php-qrcode",
@@ -206,7 +206,8 @@
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.0.3",
-        "ext-pdo_sqlite": "*"
+        "ext-pdo_sqlite": "*",
+        "ext-mbstring": "*"
     },
     "platform-dev": []
 }
