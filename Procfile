@@ -1,5 +1,1 @@
-APP_ENV=development
-APP_KEY=6f274f2a17cf4d9d15038b8924cfa68c
-APP_DEBUG=true
-APP_LOG_LEVEL=debug
-DB_CONNECTION=sqlite
+web: vendor/bin/heroku-php-apache2 public/
