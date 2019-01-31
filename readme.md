@@ -5,6 +5,7 @@
 * Git
 * Composer
 * PHP 7 or latest with SQLite PDO
+* Docker (Optional for Build Image)
 
 ### Installation
 
@@ -26,8 +27,17 @@ composer install
 To run this API using this command
 
 ```bash
-cd public
-php -S localhost:3000
+cd belanja-api
+php -S localhost:3000 -t public
+```
+
+### Build Image
+
+You can build the docker image by using below command 
+
+```
+cd belanja-api
+docker build -t api.belanja .
 ```
 
 Now, you can access using Postman `http://localhost:3000` and see 
