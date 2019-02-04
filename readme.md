@@ -40,6 +40,12 @@ cd belanja-api
 docker build -t api.belanja .
 ```
 
+or you can just pull docker image in from docker hub
+
+```
+docker pull andhikayuana/api-belanja
+```
+
 Now, you can access using Postman `http://localhost:3000` and see 
 
 ```json
