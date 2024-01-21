@@ -7,7 +7,7 @@
 
 use App\App;
 
-error_reporting(E_ALL | E_STRICT);
+// error_reporting(E_ALL | E_STRICT);
 $rootDir = dirname(__FILE__, 2);
 
 require $rootDir . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
